@@ -1,3 +1,7 @@
+"""
+Test class for talk gpt using google apis.
+"""
+
 import unittest
 import os
 from talkgpt_google import record_audio, speech_to_text, chat_gpt_response, text_to_speech
@@ -9,8 +13,8 @@ class TestChatGPT(unittest.TestCase):
         self.assertIsNotNone(audio_data, "Audio recording should return data")
 
     def test_speech_to_text(self):
-        # Replace the file path with a path to a short audio file in the LINEAR16 format
-        test_audio_file = 'path/to/test_audio.wav'
+        # short audio file in the LINEAR16 format - 16000 range, mono channel
+        test_audio_file = 'india_capital16000mono.wav'
         with open(test_audio_file, 'rb') as f:
             test_audio_data = f.read()
         text = speech_to_text(test_audio_data)
@@ -28,5 +32,3 @@ class TestChatGPT(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-#todo: use a short audio file

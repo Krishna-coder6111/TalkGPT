@@ -1,3 +1,19 @@
+"""
+This script demonstrates a simple voice-based interaction with ChatGPT using DeepSpeech for speech-to-text and Festival for text-to-speech. The script records the user's voice, converts the speech to text using DeepSpeech, sends the text to ChatGPT, and plays back ChatGPT's response using Festival.
+
+Dependencies:
+
+deepspeech
+pyaudio
+numpy
+Festival TTS (external program)
+Usage:
+
+Run the script with python script_name.py
+Speak when prompted to record your question or statement
+The script will process your speech, send it to ChatGPT, and play back the response using Festival TTS
+"""
+
 import os
 import sys
 import subprocess
@@ -14,6 +30,10 @@ scorer_file_path = 'deepspeech-0.9.3-models.scorer'
 model.enableExternalScorer(scorer_file_path)
 
 def record_audio():
+    """
+    Record audio using PyAudio, storing it in an appropriate format for DeepSpeech processing.
+    :return: numpy array containing the recorded audio data
+    """
     FORMAT = pyaudio.paInt16
     CHANNELS = 1
     RATE = 16000
@@ -37,10 +57,19 @@ def record_audio():
     return np.concatenate(frames, axis=0)
 
 def speech_to_text(audio_data):
+    """
+    Convert audio data to text using DeepSpeech.
+    :param audio_data: numpy array containing audio data
+    :return: string containing the recognized text
+    """
     text = model.stt(audio_data)
     return text.strip()
 
 def text_to_speech(text):
+    """
+    Convert text to speech using Festival TTS.
+    :param text: string containing the text to convert to speech
+    """
     with open('temp_text.txt', 'w') as f:
         f.write(text)
 
@@ -49,6 +78,9 @@ def text_to_speech(text):
     print(f'Generated speech for: "{text}"')
 
 def main():
+    """
+    Main function that records audio, processes it with DeepSpeech, sends it to ChatGPT, and plays back the response using Festival TTS.
+    """
     audio_data = record_audio()
     text_input = speech_to_text(audio_data)
 
