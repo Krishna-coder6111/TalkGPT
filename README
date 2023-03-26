@@ -30,12 +30,12 @@ pip install -r requirements.txt
 ```
 Follow the instructions for each script to set up the respective API keys, credentials, and models:
 ### Main Script
-Create a Google Cloud account and set up a project.
-Enable the Google Cloud Speech-to-Text API and Text-to-Speech API for your project.
-Create a service account key and download the JSON file.
-Replace the talk-gpt-381804-296a943be00a.json in the script with the path to your downloaded JSON file.
-Set the environment variable GOOGLE_APPLICATION_CREDENTIALS in the script with the path to your JSON file.
-Get your OpenAI API key and replace the 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 in the script with your key.
+- Create a Google Cloud account and set up a project.
+- Enable the Google Cloud Speech-to-Text API and Text-to-Speech API for your project.
+- Create a service account key and download the JSON file.
+- Replace the talk-gpt-381804-296a943be00a.json in the script with the path to your downloaded JSON file.
+- Set the environment variable GOOGLE_APPLICATION_CREDENTIALS in the script with the path to your JSON file.
+- Get your OpenAI API key and replace the 'your-own-open-ai-key' in the script with your key.
 ### Alternative Script
 Download the DeepSpeech model and scorer files from the DeepSpeech GitHub repository.
 Replace the deepspeech-0.9.3-models.pbmm and deepspeech-0.9.3-models.scorer in the script with the paths to your downloaded files.
