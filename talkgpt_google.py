@@ -20,7 +20,7 @@ from playsound import playsound
 from time import sleep
 
 # Initialize the Google Cloud Speech-to-Text client
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'talk-gpt-381804-296a943be00a.json' 
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'path-to-your-file.json' 
 speech_client = speech.SpeechClient()
 tts_client = tts.TextToSpeechClient()
 
